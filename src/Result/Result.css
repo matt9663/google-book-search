@@ -1,0 +1,12 @@
+.result {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+h2 {
+    text-align: center;
+}
+.bookData {
+    display: flex;
+    flex-direction: row;
+}

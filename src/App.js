@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import SearchBar from './SearchBar/SearchBar.js';
+import ResultList from './ResultList/ResultList.js';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      books: []
+    } 
+  }
+  updateBooks(data) {
+    this.setState({
+      books: data
+    });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="header">
+          <h1>Google Book Search</h1>
+        </header>
+        <SearchBar 
+          updateBooks={books => this.updateBooks(books)}
+          />
+        <ResultList 
+          books={this.state.books.items}
+          />
     </div>
-  );
-}
+    );
+  }
+} 
 
 export default App;
